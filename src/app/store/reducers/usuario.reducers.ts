@@ -5,15 +5,15 @@ import { CARGAR_USUARIO, CARGAR_USUARIO_SUCCESS, CARGAR_USUARIO_ERRROR } from '.
 
 
 export interface UsuarioState {
-   id     : string,
-   user   : UsuarioModel,
+   id     : string | null,
+   user   : UsuarioModel | null,
    loaded : boolean,
    loading: boolean,
    error  : any
 }
 
 export const usuarioInitialState: UsuarioState = {
-  id     : '',
+  id     : null,
   user   : null,
   loaded : false,
   loading: false,
@@ -25,7 +25,7 @@ const _usuarioReducer = createReducer(usuarioInitialState,
     on( CARGAR_USUARIO, (state, { id }) => ({
        ...state,
        loading: true,
-       id: id
+       id
       })),
 
     on( CARGAR_USUARIO_SUCCESS, ( state, { usuario }) => ({

@@ -3,7 +3,7 @@ import { UsuarioModel } from 'src/app/models/usuario.model';
 
 export const CARGAR_USUARIO = createAction(
   '[Usuario] Cargar Usuario',
-  props<{ id: string}>()
+  props<{ id: string | null}>()
 );
 
 export const CARGAR_USUARIO_SUCCESS = createAction(
