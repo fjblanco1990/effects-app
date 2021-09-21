@@ -15,3 +15,7 @@ export const CARGAR_USUARIO_ERRROR = createAction(
   '[Usuario] Cargar Usuario Error',
   props<{ payload: any}>()
 );
+
+export const CLEAR_STATE = createAction(
+  '[Usuario] Borrar estado'
+);

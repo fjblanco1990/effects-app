@@ -2,6 +2,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { UsuarioModel } from '../../models/usuario.model';
 import { CARGAR_USUARIO, CARGAR_USUARIO_SUCCESS, CARGAR_USUARIO_ERRROR } from '../actions';
+import { CLEAR_STATE } from '../actions/usuario.actions';
 
 
 export interface UsuarioState {
@@ -34,6 +35,13 @@ const _usuarioReducer = createReducer(usuarioInitialState,
        loading: false,
        loaded: true,
     })),
+
+    on( CLEAR_STATE, ( state ) => ({
+      ...state,
+      user: null,
+      loading: false,
+      loaded: false,
+   })),
 
     on( CARGAR_USUARIO_ERRROR, (state, { payload }) => ({
        ...state,

@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule, USER_PROVIDED_EFFECTS } from '@ngrx/effects';
 
 import { EffectsArray } from './store/effects/index';
+import { appReducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EffectsArray } from './store/effects/index';
     HttpClientModule,
     SharedModule,
     UsuariosModule,
-    StoreModule.forRoot({ count: usuariosReducer }),
+    StoreModule.forRoot(appReducers),
+    // StoreModule.forRoot({ count: usuariosReducer }),StoreModule.forRoot(appReducers)
     EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

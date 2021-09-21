@@ -18,4 +18,10 @@ export class UsuarioService {
     );
   }
 
+  getUsersById(id: string) {
+    return this.http.get(`${ this.url }/users/${ id }`)
+    .pipe(
+      map((resp: any) => resp['data'])
+    );
+  }
 }
